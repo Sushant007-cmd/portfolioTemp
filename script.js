@@ -255,7 +255,7 @@ if (languagesChartCtx) {
     new Chart(languagesChartCtx.getContext('2d'), {
         type: 'doughnut',
         data: {
-            labels: ['Python', 'SQL', 'R', 'JavaScript', 'Others'],
+            labels: ['Python', 'SQL', 'R', 'Java', 'Others'],
             datasets: [{
                 data: [45, 25, 15, 10, 5],
                 backgroundColor: [
@@ -293,37 +293,37 @@ if (languagesChartCtx) {
     });
 }
 
-// Progress Chart
+// Visualization Skills Chart
 const progressChartCtx = document.getElementById('progressChart');
 if (progressChartCtx) {
     const ctx = progressChartCtx.getContext('2d');
-    const gradient = ctx.createLinearGradient(0, 0, 0, 250);
-    gradient.addColorStop(0, 'rgba(255, 149, 0, 0.4)');
-    gradient.addColorStop(1, 'rgba(255, 149, 0, 0.0)');
     
     new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            labels: ['Power BI', 'Tableau', 'Data Storytelling', 'Dashboard Design', 'ETL/Power Query'],
             datasets: [{
-                label: 'Projects',
-                data: [2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 14, 15],
-                borderColor: chartColors.primary,
-                backgroundColor: gradient,
-                borderWidth: 3,
-                fill: true,
-                tension: 0.4,
-                pointBackgroundColor: chartColors.primary,
-                pointBorderColor: '#fff',
-                pointRadius: 0,
-                pointHoverRadius: 6
+                label: 'Skill Level',
+                data: [90, 80, 88, 85, 82],
+                backgroundColor: [
+                    chartColors.primary,
+                    chartColors.secondary,
+                    chartColors.tertiary,
+                    chartColors.cyan,
+                    '#1d1d1f'
+                ],
+                borderRadius: 8,
+                borderSkipped: false
             }]
         },
         options: {
+            indexAxis: 'y',
             responsive: true,
             maintainAspectRatio: false,
             scales: {
                 x: {
+                    beginAtZero: true,
+                    max: 100,
                     grid: {
                         color: 'rgba(0, 0, 0, 0.05)',
                         drawBorder: false
@@ -336,9 +336,8 @@ if (progressChartCtx) {
                     }
                 },
                 y: {
-                    beginAtZero: true,
                     grid: {
-                        color: 'rgba(0, 0, 0, 0.05)',
+                        display: false,
                         drawBorder: false
                     },
                     ticks: {
@@ -353,10 +352,6 @@ if (progressChartCtx) {
                 legend: {
                     display: false
                 }
-            },
-            interaction: {
-                intersect: false,
-                mode: 'index'
             }
         }
     });
